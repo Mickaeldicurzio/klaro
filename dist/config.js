@@ -40,8 +40,11 @@ var klaroConfig = {
     // You can choose if your services group by purpose is expend by default
     purposeExpended: true,
 
-    // You can choose if your services group by purpose is expend by default
+    // You can choose if services resume will be shown by purpose
     showServicesByPurpose: false,
+
+    // You can choose if default cookies notice will be shown
+    displayCookieNotice: false,
 
     // How Klaro should store the user's preferences. It can be either 'cookie'
     // (the default) or 'localStorage'.

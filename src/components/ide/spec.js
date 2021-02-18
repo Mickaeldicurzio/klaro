@@ -143,6 +143,12 @@ const KlaroConfigSpec = {
             default: true,
         },
         {
+            name: 'displayCookieNotice',
+            control: 'Switch',
+            validators: [],
+            default: true,
+        },
+        {
             name: 'cookieExpiresAfterDays',
             applicable: (config) => config.storageMethod === 'cookie',
             control: 'Range',
