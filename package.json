@@ -1,5 +1,5 @@
 {
-  "author": "KIProtect GmbH",
+  "author": "dicurzio",
   "browserslist": [
     "> 0.25%",
     "IE 11",
@@ -64,7 +64,7 @@
   ],
   "license": "BSD-3-Clause",
   "main": "dist/klaro.js",
-  "name": "klaro",
+  "name": "klaro-kaliop",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kiprotect/klaro.git"
@@ -78,5 +78,9 @@
     "make-dev": "cross-env APP_ENV=dev cross-env APP_DEV_MODE=server webpack-dev-server --host 0.0.0.0 --config webpack.config.js --history-api-fallback",
     "make-watch": "cross-env APP_ENV=dev cross-env APP_DEV_MODE=watch webpack --watch --config webpack.config.js"
   },
-  "version": "0.7.12"
+  "version": "1.0.0",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {}
 }
