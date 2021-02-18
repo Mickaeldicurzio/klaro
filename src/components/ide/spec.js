@@ -131,6 +131,18 @@ const KlaroConfigSpec = {
             default: true,
         },
         {
+            name: 'purposeExpended',
+            control: 'Switch',
+            validators: [],
+            default: false,
+        },
+        {
+            name: 'showServicesByPurpose',
+            control: 'Switch',
+            validators: [],
+            default: true,
+        },
+        {
             name: 'cookieExpiresAfterDays',
             applicable: (config) => config.storageMethod === 'cookie',
             control: 'Range',

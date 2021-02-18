@@ -7,7 +7,8 @@ export default class PurposeItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            servicesVisible: false,
+            servicesVisible: this.props.config.purposeExpended !== "undefined" ? this.props.config.purposeExpended : false,
+            servicesResume: this.props.config.showServicesByPurpose !== "undefined" ? this.props.config.showServicesByPurpose : false,
         };
     }
 
@@ -28,6 +29,7 @@ export default class PurposeItem extends React.Component {
             t,
         } = this.props;
         const { servicesVisible } = this.state;
+        const { servicesResume } = this.state;
         const required = this.props.required || false;
         const purposes = this.props.purposes || [];
         const onChange = (e) => {
@@ -128,18 +130,20 @@ export default class PurposeItem extends React.Component {
                 {services.length > 0 && (
                     <div className="cm-services">
                         <div className="cm-caret">
-                            <a href="#" onClick={toggleServicesVisible}>
-                                {(servicesVisible && <span>&#8593;</span>) || (
-                                    <span>&#8595;</span>
-                                )}{' '}
-                                {services.length}{' '}
-                                {t([
-                                    'purposeItem',
-                                    services.length > 1 ? 'services' : 'service',
-                                ])}
-                            </a>
+                            {
+                                servicesResume && <a href="#" onClick={toggleServicesVisible}>
+                                    {(servicesVisible && <span>&#8593;</span>) || (
+                                        <span>&#8595;</span>
+                                    )}{' '}
+                                    {services.length}{' '}
+                                    {t([
+                                        'purposeItem',
+                                        services.length > 1 ? 'services' : 'service',
+                                    ])}
+                                </a>
+                            }
                         </div>
-                        <ul
+                            <ul
                             className={
                                 'cm-content' + (servicesVisible ? ' expanded' : '')
                             }
