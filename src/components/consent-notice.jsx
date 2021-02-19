@@ -2,13 +2,14 @@ import React from 'react';
 import ConsentModal from './consent-modal';
 import { getPurposes } from '../utils/config';
 import Text from './text';
-import { asTitle } from '../utils/strings' 
+import { asTitle } from '../utils/strings'
 
 export default class ConsentNotice extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             modal: props.modal,
+            displayCookieNotice: props.config.displayCookieNotice !== "undefined" ? props.config.displayCookieNotice : true,
             confirming: false,
         };
     }
@@ -81,7 +82,7 @@ export default class ConsentNotice extends React.Component {
         else
             purposesText = [...purposesTranslations.slice(0, -2), purposesTranslations.slice(-2).join(' & ')].join(', ');
         let ppUrl;
-        // to do: deprecate and remove this 
+        // to do: deprecate and remove this
         if (config.privacyPolicy !== undefined) {
             if (typeof config.privacyPolicy === 'string')
                 ppUrl = config.privacyPolicy;
@@ -208,6 +209,7 @@ export default class ConsentNotice extends React.Component {
             );
 
         const notice = (
+            this.state.displayCookieNotice &&
             <div
                 className={`cookie-notice ${
                     (!noticeIsVisible && !testing) ? 'cookie-notice-hidden' : ''

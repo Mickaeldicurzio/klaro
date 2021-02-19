@@ -7,7 +7,6 @@ export default class App extends React.Component {
         props.manager.watch(this);
         this.state = {
             show: props.show > 0 || !props.manager.confirmed,
-            displayCookieNotice: props.config.displayCookieNotice !== "undefined" ? props.config.displayCookieNotice : true,
         };
     }
 
@@ -71,7 +70,7 @@ export default class App extends React.Component {
                     (additionalClass !== undefined ? ' ' + additionalClass : '')
                 }
             >
-                { this.state.displayCookieNotice &&
+
                     <ConsentNotice
                         key={'app-' + this.props.show}
                         t={t}
@@ -83,7 +82,6 @@ export default class App extends React.Component {
                         config={config}
                         manager={manager}
                     />
-                }
             </div>
         );
     }
